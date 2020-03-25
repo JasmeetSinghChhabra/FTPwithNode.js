@@ -21,13 +21,13 @@ ftpServer.on("login", (data, resolve, reject) => {
   }
   resolve();
 });
-// ftpServer.on("client-error", ({ context, error }) => {
-//   console.error(
-//     `FTP server error: error interfacing with client ${context} ${error} on ftp://${host}:${port} ${JSON.stringify(
-//       error
-//     )}`
-//   );
-// });
+ftpServer.on("client-error", ({ context, error }) => {
+  console.error(
+    `FTP server error: error interfacing with client ${context} ${error} on ftp://${host}:${port} ${JSON.stringify(
+      error
+    )}`
+  );
+});
 
 ftpServer.listen().then(() => {
   console.log();
