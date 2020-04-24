@@ -6,5 +6,5 @@ services:
       - "4000:4000"
     command: npm start
     volumes:
-      - ..:/ftp/
+      - .:/ftp/
       - /ftp/node_modules
