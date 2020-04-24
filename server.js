@@ -1,15 +1,16 @@
 const FtpSrv = require("ftp-srv");
-const hostname = "0.0.0.0";
+const host = "0.0.0.0";
 const port = 4000;
-const ftpServer = new FtpSrv("ftp://" + hostname + ":" + port, {
-  anonymous: true,
+const ftpServer = new FtpSrv({
+  url: "ftps://0.0.0.0:4000",
   greeting: ["Hello Client", "Proceed With Upload/Download/Rename Requests"],
+  tls: true,
 });
 
 //const ftpServer = new FtpSrv({});
 
 ftpServer.on("login", (data, resolve, reject) => {
-  if (data.username == "mulamail" && data.password == "mulamail123") {
+  if (data.username == "test" && data.password == "test123") {
     //If connected, add a handler to confirm file uploads
     data.connection.on("STOR", (error, fileName) => {
       if (error) {
