@@ -3,7 +3,7 @@ const host = "0.0.0.0";
 const port = 4000;
 const ftpServer = new FtpSrv({
   url: "ftps://" + host + ":" + port,
-  pasv_url: "192.168.0.192",
+  pasv_url: "0.0.0.0",
   pasv_min: 1024,
   pasv_min: 65535,
   //tls: true,
@@ -43,7 +43,8 @@ ftpServer.on("login", (data, resolve, reject) => {
       )
     );
   }
-  resolve({ root: "files/" });
+  //resolve({ root: "files/" });
+  resolve();
 });
 ftpServer.on("client-error", ({ context, error }) => {
   console.error(
