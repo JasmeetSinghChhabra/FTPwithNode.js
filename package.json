@@ -11,6 +11,7 @@
   "dependencies": {
     "forever": "^2.0.0",
     "ftp-srv": "^4.3.1",
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "public-ip": "^4.0.1"
   }
 }

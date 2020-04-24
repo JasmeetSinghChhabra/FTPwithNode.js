@@ -1,9 +1,10 @@
 const FtpSrv = require("ftp-srv");
 const host = "0.0.0.0";
 const port = 4000;
+const pasv_url = await publicIp.v4();
 const ftpServer = new FtpSrv({
   url: "ftps://" + host + ":" + port,
-  pasv_url: "0.0.0.0",
+  pasv_url,
   pasv_min: 1024,
   pasv_min: 65535,
   //tls: true,
