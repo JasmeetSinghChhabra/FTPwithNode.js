@@ -1,6 +1,6 @@
 const FtpSrv = require("ftp-srv");
-const hostname = "127.0.0.1";
-const port = 1111;
+const hostname = "0.0.0.0";
+const port = 4000;
 const ftpServer = new FtpSrv("ftp://" + hostname + ":" + port, {
   anonymous: true,
   greeting: ["Hello Client", "Proceed With Upload/Download/Rename Requests"],
@@ -42,7 +42,7 @@ ftpServer.on("login", (data, resolve, reject) => {
       )
     );
   }
-  resolve(files/);
+  resolve({ root: "files/" });
 });
 ftpServer.on("client-error", ({ context, error }) => {
   console.error(
