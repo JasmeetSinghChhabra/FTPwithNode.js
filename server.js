@@ -3,6 +3,9 @@ const host = "0.0.0.0";
 const port = 4000;
 const ftpServer = new FtpSrv({
   url: "ftps://" + host + ":" + port,
+  pasv_url: "192.168.0.192",
+  pasv_min: 1024,
+  pasv_min: 65535,
   //tls: true,
 });
 
