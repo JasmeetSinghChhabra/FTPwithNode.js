@@ -5,7 +5,7 @@ WORKDIR /ftp
 COPY ./package.json .
 COPY ./package-lock.json .
 
-RUN npm i -f
+RUN npm i
 
 COPY . .
 
