@@ -1,5 +1,12 @@
 const FtpSrv = require("ftp-srv");
-const ftpServer = new FtpSrv({});
+const hostname = "127.0.0.1";
+const port = 1111;
+const ftpServer = new FtpSrv("ftp://" + hostname + ":" + port, {
+  anonymous: true,
+  greeting: ["Hello Client", "Proceed With Upload/Download/Rename Requests"],
+});
+
+//const ftpServer = new FtpSrv({});
 
 ftpServer.on("login", (data, resolve, reject) => {
   if (data.username == "mulamail" && data.password == "mulamail123") {
@@ -12,6 +19,22 @@ ftpServer.on("login", (data, resolve, reject) => {
       }
       console.info(`FTP server: upload successfully received - ${fileName}`);
     });
+    data.connection.on("RETR", (error, fileName) => {
+      if (error) {
+        console.error(
+          `FTP server error: could not get file ${fileName} for download ${error}`
+        );
+      }
+      console.info(`FTP server: file successfully downloaded - ${fileName}`);
+    });
+    data.connection.on("RNTO", (error, fileName) => {
+      if (error) {
+        console.error(
+          `FTP server error: could not get file ${fileName} for rename ${error}`
+        );
+      }
+      console.info(`FTP server: upload successfully renamed - ${fileName}`);
+    });
   } else {
     reject(
       new Error(
@@ -19,7 +42,7 @@ ftpServer.on("login", (data, resolve, reject) => {
       )
     );
   }
-  resolve();
+  resolve(files/);
 });
 ftpServer.on("client-error", ({ context, error }) => {
   console.error(
