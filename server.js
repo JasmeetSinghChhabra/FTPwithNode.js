@@ -1,8 +1,8 @@
 const FtpSrv = require("ftp-srv");
-const host = "127.0.0.1";
+const host = "0.0.0.0";
 const port = 4000;
 const ftpServer = new FtpSrv({
-  url: "ftps://" + host + ":" + port,
+  url: "ftp://" + host + ":" + port,
   //tls: true,
 });
 
