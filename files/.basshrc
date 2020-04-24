@@ -1,4 +1,0 @@
-alias pip=/Library/Frameworks/Python.framework/Versions/3.8/bin/pip3
-# alias python='python3'
-# export PATH=/usr/local/opt/python/libexec/bin:$PATH
-export PYTHONPATH="/usr/local/Cellar/python/3.8.0/bin/python3:$PYTHONPATH"

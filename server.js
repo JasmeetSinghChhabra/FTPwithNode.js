@@ -1,17 +1,14 @@
 const FtpSrv = require("ftp-srv");
-const host = "0.0.0.0";
+const host = "127.0.0.1";
 const port = 4000;
 const ftpServer = new FtpSrv({
-  url: "ftps://0.0.0.0:4000",
-  greeting: ["Hello Client", "Proceed With Upload/Download/Rename Requests"],
-  tls: true,
+  url: "ftps://" + host + ":" + port,
+  //tls: true,
 });
 
-//const ftpServer = new FtpSrv({});
-
 ftpServer.on("login", (data, resolve, reject) => {
+  console.log(data);
   if (data.username == "test" && data.password == "test123") {
-    //If connected, add a handler to confirm file uploads
     data.connection.on("STOR", (error, fileName) => {
       if (error) {
         console.error(
@@ -54,5 +51,5 @@ ftpServer.on("client-error", ({ context, error }) => {
 });
 
 ftpServer.listen().then(() => {
-  console.log();
+  console.log("FTP Server Listening on : " + "ftps://" + host + ":" + port);
 });
