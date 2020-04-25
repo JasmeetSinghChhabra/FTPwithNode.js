@@ -6,7 +6,7 @@ const port = 4000;
 //const pasv_url = await publicIp.v4();
 const ftpServer = new FtpSrv({
   url: "ftp://" + host + ":" + port,
-  pasv_url: "127.0.0.1",
+  pasv_url: "0.0.0.0",
   pasv_min: 50000,
   pasv_min: 51000,
   //tls: true,
