@@ -1,14 +1,14 @@
 //const publicIp = require("public-ip");
 const FtpSrv = require("ftp-srv");
 const host = "0.0.0.0";
-const port = 4000;
+const port = 21;
 //(async () => {
 //const pasv_url = await publicIp.v4();
 const ftpServer = new FtpSrv({
   url: "ftp://" + host + ":" + port,
-  pasv_url: "0.0.0.0",
-  pasv_min: 50000,
-  pasv_min: 51000,
+  // pasv_url: "0.0.0.0",
+  // pasv_min: 50000,
+  // pasv_min: 51000,
   //tls: true,
   anonymous: false,
   //timeout: 60000,

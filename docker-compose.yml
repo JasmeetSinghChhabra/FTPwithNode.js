@@ -3,7 +3,7 @@ services:
   ftp:
     build: .
     ports:
-      - "4000:4000"
+      - "21:21"
     command: npm start
     volumes:
       - .:/ftp/
