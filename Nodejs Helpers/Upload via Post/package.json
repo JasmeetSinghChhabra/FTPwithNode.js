@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "express-fileupload": "^1.1.6",
+    "express-fileupload": "^1.1.9",
     "fs": "0.0.1-security",
     "ftp-client": "^0.2.2",
     "http": "0.0.0",
